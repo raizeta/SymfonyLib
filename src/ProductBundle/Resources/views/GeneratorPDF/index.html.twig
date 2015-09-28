@@ -1,9 +1,11 @@
-{% extends "::base.html.twig" %}
+{% extends "ProductBundle:GeneratorPDF:layout.html.twig" %}
 
-{% block body %}
+{% block main %}
 	{% for entity in entity %}
 	    <h2>{{entity.id}}</h2>
 	    <h2>{{entity.productName}}</h2>
 	    <h2>{{entity.productPrice}}</h2>
 	{% endfor %}
 {% endblock %}
+
+
