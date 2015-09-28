@@ -26,8 +26,12 @@ security:
             form_login:
                 provider: fos_userbundle
                 csrf_provider: security.csrf.token_manager # Use form.csrf_provider instead for Symfony <2.4
+                login_path: /auth/login
+                check_path: /auth/login_check
 
-            logout:       true
+            logout:    
+                path:           /auth/logout
+                target:         /
             anonymous:    true
 
     access_control:
