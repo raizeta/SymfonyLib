@@ -13,6 +13,16 @@ security:
     firewalls:
         main:
             pattern: ^/
+            oauth:
+                failure_path: /auth/connect/
+                login_path: /auth/login
+                check_path: /auth/connect/
+                provider: fos_userbundle
+                resource_owners:
+                    github:           "/auth/check-github"
+                oauth_user_provider:
+                    service: hwi_oauth.user.provider.fosub_bridge
+
             form_login:
                 provider: fos_userbundle
                 csrf_provider: security.csrf.token_manager # Use form.csrf_provider instead for Symfony <2.4

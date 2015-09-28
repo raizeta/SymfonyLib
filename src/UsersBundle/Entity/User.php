@@ -17,10 +17,41 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="github_id", type="string", nullable=true)
+     */
+    private $githubID;
 
     public function __construct()
     {
         parent::__construct();
         // your own logic
+    }
+
+    /**
+     * Set githubID
+     *
+     * @param string $githubID
+     *
+     * @return User
+     */
+    public function setGithubID($githubID)
+    {
+        $this->githubID = $githubID;
+
+        return $this;
+    }
+
+    /**
+     * Get githubID
+     *
+     * @return string
+     */
+    public function getGithubID()
+    {
+        return $this->githubID;
     }
 }
