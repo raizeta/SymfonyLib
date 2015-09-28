@@ -124,4 +124,17 @@ knp_paginator:
         pagination: KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig
         #pagination: KnpPaginatorBundle:Pagination:twitter_bootstrap_pagination.html.twig
 
+####This Setting For Heroku
+#knp_snappy:
+    #pdf:
+        #enabled:    true
+        #binary:     "%kernel.root_dir%/../bin/wkhtmltopdf"
+        #options:    []
+
+#This Setting For Local In Windows
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary: "\"C:/Program Files (x86)/wkhtmltopdf/bin/wkhtmltopdf.exe\""
+        options:    []
 
