@@ -1,0 +1,8 @@
+users:
+    resource: "@UsersBundle/Resources/config/routing.yml"
+    prefix:   /auth
+
+layout:
+    resource: "@LayoutBundle/Resources/config/routing.yml"
+    prefix:   /
+
