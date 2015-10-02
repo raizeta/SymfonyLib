@@ -138,3 +138,11 @@ knp_snappy:
         binary: "\"C:/Program Files (x86)/wkhtmltopdf/bin/wkhtmltopdf.exe\""
         options:    []
 
+liip_imagine:
+    filter_sets:
+        cache: ~
+        my_thumb:
+            quality: 100
+            filters:
+                thumbnail: { size: [110, 110], mode: outbound }
+

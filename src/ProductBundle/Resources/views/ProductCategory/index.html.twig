@@ -1,0 +1,13 @@
+{% for entities in entities %}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
+                <span class="pull-right">({{entities.products|length}})</span>
+                {{entities.categoryName}}
+            </a>
+        </h4>
+    </div>
+</div>
+{% endfor %}
+

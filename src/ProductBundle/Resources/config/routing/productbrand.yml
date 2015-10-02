@@ -1,0 +1,7 @@
+productbrand:
+    path:     /
+    defaults: { _controller: "ProductBundle:ProductBrand:index" }
+
+productbrand_show:
+    path:     /{slug}/show
+    defaults: { _controller: "ProductBundle:ProductBrand:show" }

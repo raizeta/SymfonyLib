@@ -1,0 +1,30 @@
+cart:
+    path:     /
+    defaults: { _controller: "ProductBundle:Cart:index" }
+
+cart_show:
+    path:     /{id}/show
+    defaults: { _controller: "ProductBundle:Cart:show" }
+
+cart_new:
+    path:     /new
+    defaults: { _controller: "ProductBundle:Cart:new" }
+
+cart_create:
+    path:     /create/{id}
+    defaults: { _controller: "ProductBundle:Cart:create" }
+
+
+cart_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ProductBundle:Cart:edit" }
+
+cart_update:
+    path:     /{id}/update
+    defaults: { _controller: "ProductBundle:Cart:update" }
+    methods:  [POST, PUT]
+
+cart_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ProductBundle:Cart:delete" }
+

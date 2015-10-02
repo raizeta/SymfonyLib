@@ -1,3 +1,11 @@
 layout_homepage:
     path:     /
     defaults: { _controller: LayoutBundle:Default:index }
+
+layout_product:
+    path:     /layout/product
+    defaults: { _controller: LayoutBundle:Default:product }
+
+layout_detail:
+    path:     /detail
+    defaults: { _controller: LayoutBundle:Default:detail }

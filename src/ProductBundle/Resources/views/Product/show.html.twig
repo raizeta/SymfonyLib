@@ -1,36 +1,89 @@
-{% extends '::base.html.twig' %}
-
-{% block body -%}
-    <h1>Product</h1>
-
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Productname</th>
-                <td>{{ entity.productName }}</td>
-            </tr>
-            <tr>
-                <th>Productprice</th>
-                <td>{{ entity.productPrice }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('product') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('product_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
-{% endblock %}
+{% extends "LayoutBundle:Default:product.html.twig" %}
+{% block konsen %}          
+<div class="col-sm-9 padding-right">
+    <div class="product-details"><!--product-details-->
+        <div class="col-sm-5">
+            <div class="view-product">
+                <img src="{{asset('ecommerce/images/product-details/1.jpg')}}" alt=""/>
+                <h3>ZOOM</h3>
+            </div>
+        </div>
+        <div class="col-sm-7">
+            <div class="product-information"><!--/product-information-->
+                <img src="images/product-details/new.jpg" class="newarrival" alt="" />
+                <h2>{{entity.nama}}</h2>
+                <img src="images/product-details/rating.png" alt="" />
+                <span>
+                    <span>Rp. {{entity.harga}}</span>
+                    <label>Quantity:</label>
+                    <input type="number" value="1" />
+                    <button type="button" class="btn btn-fefault cart">
+                        <i class="fa fa-shopping-cart"></i>
+                        Add to cart
+                    </button>
+                </span>
+                <p><b>Brand:</b> {{entity.productBrand.brandName}}</p>
+                <a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a>
+            </div><!--/product-information-->
+        </div>
+    </div><!--/product-details-->
+    
+    <div class="category-tab shop-details-tab"><!--category-tab-->
+        <div class="col-sm-12">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#reviews" data-toggle="tab">Reviews (5)</a></li>
+                <li><a href="#companyprofile" data-toggle="tab">Brand Profile</a></li>
+            </ul>
+        </div>
+        <div class="tab-content">
+            <div class="tab-pane fade" id="companyprofile" >
+                <div class="col-sm-9">   
+                    <table class="table table-hovered table-striped table-bordered">
+                        <tr>
+                            <td>Company Name</td>
+                            <td>{{entity.productBrand.brandName}}</td>
+                        </tr>
+                        <tr>
+                            <td>Company Adress</td>
+                            <td>{{entity.productBrand.address}}, &nbsp;{{entity.productBrand.zip}}</td>
+                        </tr>
+                        <tr>
+                            <td>Company Telp</td>
+                            <td>{{entity.productBrand.telp}}</td>
+                        </tr>
+                        <tr>
+                            <td>Company Email</td>
+                            <td>{{entity.productBrand.email}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+              
+            <div class="tab-pane fade active in" id="reviews" >
+                <div class="col-sm-12">
+                    <ul>
+                        <li><a href=""><i class="fa fa-user"></i>EUGEN</a></li>
+                        <li><a href=""><i class="fa fa-clock-o"></i>12:41 PM</a></li>
+                        <li><a href=""><i class="fa fa-calendar-o"></i>31 DEC 2014</a></li>
+                    </ul>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <p><b>Write Your Review</b></p>
+                    
+                    <form action="#">
+                        <span>
+                            <input type="text" placeholder="Your Name"/>
+                            <input type="email" placeholder="Email Address"/>
+                        </span>
+                        <textarea name="" ></textarea>
+                        <b>Rating: </b> <img src="images/product-details/rating.png" alt="" />
+                        <button type="button" class="btn btn-default pull-right">
+                            Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+    </div><!--/category-tab-->  
+</div>
+{% endblock konsen %}

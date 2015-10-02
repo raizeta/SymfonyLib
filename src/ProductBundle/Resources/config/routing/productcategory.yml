@@ -1,0 +1,9 @@
+productcategory:
+    path:     /
+    defaults: { _controller: "ProductBundle:ProductCategory:index" }
+
+productcategory_show:
+    path:     /{id}/show
+    defaults: { _controller: "ProductBundle:ProductCategory:show" }
+
+

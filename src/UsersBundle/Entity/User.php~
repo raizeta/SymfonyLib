@@ -4,7 +4,7 @@ namespace UsersBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
-
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * @ORM\Entity
  * @ORM\Table(name="users")
@@ -25,9 +25,38 @@ class User extends BaseUser
      */
     private $githubID;
 
+    /**
+     * @ORM\OneToMany(targetEntity="ProductBundle\Entity\Cart", mappedBy="customer")
+     */
+    protected $carts;
+
     public function __construct()
     {
         parent::__construct();
-        // your own logic
+        $this->carts = new ArrayCollection();
+    }
+
+    /**
+     * Set githubID
+     *
+     * @param string $githubID
+     *
+     * @return User
+     */
+    public function setGithubID($githubID)
+    {
+        $this->githubID = $githubID;
+
+        return $this;
+    }
+
+    /**
+     * Get githubID
+     *
+     * @return string
+     */
+    public function getGithubID()
+    {
+        return $this->githubID;
     }
 }

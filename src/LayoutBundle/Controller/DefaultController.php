@@ -10,4 +10,14 @@ class DefaultController extends Controller
     {
         return $this->render('LayoutBundle:Default:index.html.twig');
     }
+
+    public function productAction()
+    {
+        return $this->render('LayoutBundle:Default:product.html.twig');
+    }
+    public function detailAction()
+    {
+        return $this->render('LayoutBundle:Default:detail.html.twig');
+    }
+
 }

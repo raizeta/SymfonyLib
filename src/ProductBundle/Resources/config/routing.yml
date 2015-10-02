@@ -1,7 +1,21 @@
+product_cart:
+    resource: "@ProductBundle/Resources/config/routing/cart.yml"
+    prefix:   /cart
+
+product_productbrand:
+    resource: "@ProductBundle/Resources/config/routing/productbrand.yml"
+    prefix:   /productbrand
+
+product_productcategory:
+    resource: "@ProductBundle/Resources/config/routing/productcategory.yml"
+    prefix:   /productcategory
+
 product_product:
     resource: "@ProductBundle/Resources/config/routing/product.yml"
     prefix:   /product
 
-product_pdf:
-    path:     /pdf/product
-    defaults: { _controller: ProductBundle:GeneratorPDF:index }
+
+
+product_sales:
+    path:     /sales
+    defaults: { _controller: ProductBundle:Sales:topsales }

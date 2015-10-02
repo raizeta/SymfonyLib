@@ -1,0 +1,6 @@
+{% for entities in entities %}
+    <li><a href="{{url('productbrand_show',{'slug':entities.brandName})}}"> 
+    	<span class="pull-right">({{entities.products|length}})</span>{{entities.brandName}}</a>
+    </li>
+{% endfor %}
+                                

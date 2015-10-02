@@ -1,0 +1,60 @@
+{% extends "LayoutBundle::layout.html.twig" %}
+{% block main %}
+{% block slider %}{% endblock %}
+
+<section id="cart_items">
+    <div class="container">
+        <div class="table-responsive cart_info">
+            <table class="table table-condensed">
+                <thead>
+                    <tr class="cart_menu">
+                        <td class="image">Item</td>
+                        <td class="description"></td>
+                        <td class="price">Price</td>
+                        <td class="quantity">Quantity</td>
+                        <td class="total">Total</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entities in entities %}
+                    <tr>
+                        <td class="cart_product">
+                            <a href=""><img src="{{('ecommerce/images/shop/'~ entities.p_imageName)| imagine_filter('my_thumb')}}" alt=""></a>
+                        </td>
+                        <td class="cart_description">
+                            <h4><a href="">{{entities.p_nama}}</a></h4>
+                        </td>
+                        <td class="cart_price">
+                            <p>Rp.{{entities.p_harga|number_format}}</p>
+                        </td>
+                        <td>
+                            <input type="number" value="{{entities.c_jumlah}}" />
+                        </td>
+                        <td class="cart_total">
+                            <p class="cart_total_price">Rp.{% set total=(entities.p_harga)*(entities.c_jumlah) %} {{total|number_format}}</p>
+                        </td>
+                        <td class="cart_delete">
+                            <a class="cart_quantity_delete" href="{{url('cart_delete',{'id':entities.c_id})}}"><i class="fa fa-times"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    
+                    <tr>
+                        <td></td>
+                        <td colspan="3">
+                            <div class="pull-left">
+                                <a href="{{url('product')}}" class="btn btn-primary"><i class="fa fa-chevron-left"></i> Continue shopping</a>
+                            </div>
+                        </td>
+                        <td colspan="2">
+                                <button type="submit" class="btn btn-primary">Proceed to checkout <i class="fa fa-chevron-right"></i>
+                                </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section> <!--/#cart_items-->
+{% endblock main %}
